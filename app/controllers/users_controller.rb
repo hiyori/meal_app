@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.find_or_create_by(user_params)
     if @user.save
       @user.send_email
+      binding.pry
       flash[:success]="The email was sent"
       redirect_to root_path
     else
